@@ -1,0 +1,11 @@
+fragment MollieAvailablePaymentMethod on AvailablePaymentMethod
+@inject(into: ["AvailablePaymentMethod"]) {
+  mollie_available_issuers {
+    code
+    name
+    svg
+  }
+  mollie_meta {
+    image
+  }
+}

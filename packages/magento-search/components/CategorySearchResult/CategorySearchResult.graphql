@@ -1,0 +1,6 @@
+fragment CategorySearchResult on CategoryTree {
+  uid
+  url_path
+  name
+  ...CategoryBreadcrumb
+}

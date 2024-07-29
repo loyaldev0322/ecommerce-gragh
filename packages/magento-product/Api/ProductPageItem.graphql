@@ -1,0 +1,12 @@
+fragment ProductPageItem on ProductInterface {
+  __typename
+  uid
+  ...ProductListItem
+  ...UseAddProductsToCartAction
+  ...ProductPageCategory
+  ...ProductPageBreadcrumb
+  ...ProductPageDescription
+  ...ProductPageGallery
+  ...ProductPageMeta
+  ...ProductPagePrice
+}

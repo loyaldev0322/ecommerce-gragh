@@ -1,0 +1,16 @@
+fragment PaymentMethodContext on Cart {
+  id
+  available_payment_methods {
+    ...AvailablePaymentMethod
+  }
+  selected_payment_method {
+    ...SelectedPaymentMethod
+  }
+  prices {
+    applied_taxes {
+      amount {
+        ...Money
+      }
+    }
+  }
+}

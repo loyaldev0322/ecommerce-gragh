@@ -1,0 +1,7 @@
+fragment OrderCardItemImage on ProductInterface {
+  uid
+  thumbnail {
+    ...ProductImage
+  }
+  url_key
+}

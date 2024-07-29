@@ -1,0 +1,6 @@
+fragment BillingAddress on Cart {
+  id
+  billing_address {
+    ...CartAddress
+  }
+}

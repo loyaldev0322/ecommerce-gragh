@@ -1,0 +1,5 @@
+mutation SignOutForm {
+  revokeCustomerToken {
+    result
+  }
+}

@@ -1,0 +1,31 @@
+extend input GraphCommerceConfig {
+  """
+  Enable Guest Checkout Login:
+  During customer login, GraphCommerce queries Magento to determine whether
+  the customer account already exists or not. If not, the sign-up form is shown instead.
+
+  For Magento versions, 2.4.7, 2.4.6-p1 and up, 2.4.5-p3 and up, 2.4.4-p4 and up, the following setting must be set to Yes
+
+  `Stores -> Configuration -> Sales -> Checkout -> Checkout Options -> Enable Guest Checkout Login`
+  """
+  enableGuestCheckoutLogin: Boolean
+
+  """
+  Enable customer account deletion through the account section
+  """
+  customerDeleteEnabled: Boolean
+
+  """
+  X-Magento-Cache-Id allows Varnish to cache requests that are made in the browser while users are logged in. For example the products query can now be cached for logged in users.
+
+  This can be disabled when Varnish is running out of available memory.
+  """
+  customerXMagentoCacheIdDisable: Boolean
+}
+
+extend input GraphCommerceDebugConfig {
+  """
+  Enable debugging interface to debug sessions
+  """
+  sessions: Boolean
+}

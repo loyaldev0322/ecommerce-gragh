@@ -1,0 +1,14 @@
+fragment ProductListItem on ProductInterface {
+  uid
+  ...ProductLink
+  sku
+  name
+  small_image {
+    ...ProductImage
+  }
+  price_range {
+    minimum_price {
+      ...ProductListPrice
+    }
+  }
+}

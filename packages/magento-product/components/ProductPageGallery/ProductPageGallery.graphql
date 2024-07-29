@@ -1,0 +1,11 @@
+fragment ProductPageGallery on ProductInterface {
+  media_gallery {
+    __typename
+    label
+    position
+    disabled
+    ...ProductImage
+    ...ProductVideo
+  }
+  url_key
+}

@@ -1,0 +1,17 @@
+{
+  "exclude": ["**/node_modules", "example", "dist", "**/.*/", "__tests__", "__mocks__"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "files": ["src/index.ts"],
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "noEmit": false,
+    "outDir": "dist",
+    "sourceMap": false,
+    "noLib": false,
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Node",
+    "module": "CommonJS"
+  }
+}

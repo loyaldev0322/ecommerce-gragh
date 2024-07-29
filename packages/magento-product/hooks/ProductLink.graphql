@@ -1,0 +1,5 @@
+fragment ProductLink on ProductInterface {
+  __typename
+  uid
+  url_key
+}

@@ -1,0 +1,6 @@
+query PostCodeNL($postcode: String!, $housenumber: String!) {
+  postcodeNL(postcode: $postcode, housenumber: $housenumber) {
+    street
+    city
+  }
+}

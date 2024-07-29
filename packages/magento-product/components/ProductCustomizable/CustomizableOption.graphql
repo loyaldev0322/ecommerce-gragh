@@ -1,0 +1,6 @@
+fragment CustomizableOption on CustomizableOptionInterface {
+  uid
+  required
+  sort_order
+  title
+}

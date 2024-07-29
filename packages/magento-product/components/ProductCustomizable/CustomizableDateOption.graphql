@@ -1,0 +1,9 @@
+fragment CustomizableDateOption on CustomizableDateOption {
+  product_sku
+  dateValue: value {
+    price
+    price_type
+    sku
+    uid
+  }
+}

@@ -1,0 +1,3 @@
+fragment ProductListItemGrouped on GroupedProduct @inject(into: ["ProductListItem"]) {
+  uid
+}

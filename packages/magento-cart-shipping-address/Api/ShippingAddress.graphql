@@ -1,0 +1,7 @@
+fragment ShippingAddress on Cart {
+  id
+  is_virtual
+  shipping_addresses {
+    ...CartAddress
+  }
+}

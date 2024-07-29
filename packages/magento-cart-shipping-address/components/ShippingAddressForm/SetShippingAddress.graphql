@@ -1,0 +1,49 @@
+mutation SetShippingAddress(
+  $cartId: String!
+  $company: String
+  $vatId: String
+  $firstname: String!
+  $lastname: String!
+  $postcode: String!
+  $city: String!
+  $countryCode: String!
+  $regionId: Int
+  $street: String!
+  $houseNumber: String!
+  $addition: String
+  $telephone: String = "000 - 000 0000"
+  $saveInAddressBook: Boolean!
+  $customerNote: String
+  $isCompany: Boolean = false
+) {
+  setShippingAddressesOnCart(
+    input: {
+      cart_id: $cartId
+      shipping_addresses: [
+        {
+          address: {
+            company: $company
+            vat_id: $vatId
+            firstname: $firstname
+            lastname: $lastname
+            postcode: $postcode
+            city: $city
+            country_code: $countryCode
+            region_id: $regionId
+            street: [$street, $houseNumber, $addition]
+            telephone: $telephone
+            save_in_address_book: $saveInAddressBook
+          }
+          customer_notes: $customerNote
+        }
+      ]
+    }
+  ) {
+    cart {
+      isCompany: id @include(if: $isCompany)
+      id
+      __typename
+      ...ShippingAddress
+    }
+  }
+}

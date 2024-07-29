@@ -1,0 +1,3 @@
+fragment ProductListItemSimple on SimpleProduct @inject(into: ["ProductListItem"]) {
+  uid
+}

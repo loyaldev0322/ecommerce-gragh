@@ -1,0 +1,5 @@
+query AccountDashboardOrders($currentPage: Int!, $pageSize: Int!) {
+  customer {
+    ...AccountOrders
+  }
+}

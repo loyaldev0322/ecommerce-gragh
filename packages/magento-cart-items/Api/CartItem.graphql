@@ -1,0 +1,43 @@
+fragment CartItem on CartItemInterface {
+  uid
+  quantity
+  __typename
+  product {
+    ...ProductLink
+    sku
+    name
+    sku
+    thumbnail {
+      ...ProductImage
+    }
+    ...ProductPagePrice
+  }
+  prices {
+    discounts {
+      amount {
+        ...Money
+      }
+      label
+    }
+    price {
+      ...Money
+    }
+    price_including_tax {
+      ...Money
+    }
+    row_total_including_tax {
+      ...Money
+    }
+    row_total {
+      ...Money
+    }
+    total_item_discount {
+      ...Money
+    }
+  }
+
+  errors {
+    code
+    message
+  }
+}

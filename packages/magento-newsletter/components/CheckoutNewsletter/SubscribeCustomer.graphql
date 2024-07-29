@@ -1,0 +1,7 @@
+mutation SubscribeCustomer {
+  updateCustomerV2(input: { is_subscribed: true }) {
+    customer {
+      is_subscribed
+    }
+  }
+}

@@ -1,0 +1,48 @@
+mutation SetBillingAddress(
+  $cartId: String!
+  $company: String
+  $vatId: String
+  $firstname: String!
+  $lastname: String!
+  $postcode: String!
+  $city: String!
+  $countryCode: String!
+  $regionId: Int
+  $region: String
+  $street: String!
+  $houseNumber: String!
+  $addition: String
+  $telephone: String = "000 - 000 0000"
+  $saveInAddressBook: Boolean!
+  $isCompany: Boolean = false
+) {
+  setBillingAddressOnCart(
+    input: {
+      cart_id: $cartId
+      billing_address: {
+        address: {
+          company: $company
+          vat_id: $vatId
+          firstname: $firstname
+          lastname: $lastname
+          postcode: $postcode
+          city: $city
+          country_code: $countryCode
+          region: $region
+          region_id: $regionId
+          street: [$street, $houseNumber, $addition]
+          telephone: $telephone
+          save_in_address_book: $saveInAddressBook
+        }
+        same_as_shipping: false
+      }
+    }
+  ) {
+    cart {
+      isCompany: id @include(if: $isCompany)
+      id
+      __typename
+      ...BillingAddress
+    }
+  }
+}

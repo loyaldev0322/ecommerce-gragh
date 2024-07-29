@@ -1,0 +1,20 @@
+fragment MenuQueryFragment on Query {
+  menu: categories {
+    items {
+      uid
+      ...NavigationItem
+      children {
+        uid
+        ...NavigationItem
+        children {
+          uid
+          ...NavigationItem
+          children {
+            uid
+            ...NavigationItem
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+fragment ShippingPageFragment on Cart {
+  ...BillingAddress
+  ...ShippingAddress
+  ...CartSummary
+  ...CartStartCheckout
+}

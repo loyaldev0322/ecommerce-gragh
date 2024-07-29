@@ -1,0 +1,6 @@
+fragment CategoryChildren on CategoryTree {
+  uid
+  children {
+    ...NavigationItem
+  }
+}

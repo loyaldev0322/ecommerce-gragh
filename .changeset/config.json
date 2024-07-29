@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
+  "changelog": [
+    "@graphcommerce/changeset-changelog",
+    { "repo": "graphcommerce-org/graphcommerce" }
+  ],
+  "commit": false,
+  "fixed": [["@graphcommerce/*"]],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "snapshot": {
+    "useCalculatedVersion": true,
+    "prereleaseTemplate": "{tag}-{datetime}-{commit}"
+  },
+  "autoBumpPeerDependentsInSameChangeset": true,
+  "autoBumpPeerDependentsCondition": "out-of-range",
+  "autoBumpPeerDependentsStrategy": "follow"
+}

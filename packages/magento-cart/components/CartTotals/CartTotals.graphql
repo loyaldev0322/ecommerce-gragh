@@ -1,0 +1,57 @@
+fragment CartTotals on Cart @inject(into: ["CartItemCountChanged", "PaymentMethodUpdated"]) {
+  shipping_addresses {
+    selected_shipping_method {
+      carrier_code
+      method_code
+      method_title
+      carrier_title
+      amount {
+        ...Money
+      }
+      price_excl_tax {
+        ...Money
+      }
+      price_incl_tax {
+        ...Money
+      }
+    }
+    # todo: When 245 is not supported anymore, remove available_shipping_methods from fragment.
+    available_shipping_methods {
+      carrier_code
+      method_code
+      price_incl_tax {
+        ...Money
+      }
+      price_excl_tax {
+        ...Money
+      }
+    }
+  }
+  prices {
+    __typename
+    applied_taxes {
+      amount {
+        ...Money
+      }
+      label
+    }
+    discounts {
+      amount {
+        ...Money
+      }
+      label
+    }
+    grand_total {
+      ...Money
+    }
+    subtotal_excluding_tax {
+      ...Money
+    }
+    subtotal_including_tax {
+      ...Money
+    }
+    subtotal_with_discount_excluding_tax {
+      ...Money
+    }
+  }
+}

@@ -1,0 +1,44 @@
+name: release
+on:
+  push:
+    branches:
+      - 'main'
+concurrency:
+  group: release-main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@graphcommerce'
+      - name: yarn install && yarn postinstall
+        run: yarn install && yarn postinstall
+      - name: set version variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "::set-output name=date::$(date +"%B %d, %Y")"
+      - name: release / pull_request
+        id: changesets
+        uses: paales/changesets-action@main
+        with:
+          publish: 'yarn release'
+          commit: 'chore(release): update monorepo packages versions'
+          title: 'Upcoming Release Changes (${{ github.ref }})'
+          createGithubReleases: aggregate
+          githubReleaseName: ${{ steps.vars.outputs.date }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

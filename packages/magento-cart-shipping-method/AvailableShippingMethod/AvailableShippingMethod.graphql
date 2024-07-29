@@ -1,0 +1,14 @@
+fragment AvailableShippingMethod on AvailableShippingMethod {
+  price_incl_tax {
+    ...Money
+  }
+  price_excl_tax {
+    ...Money
+  }
+  available
+  carrier_code
+  carrier_title
+  error_message
+  method_code
+  method_title
+}

@@ -1,0 +1,4 @@
+fragment CustomerTokenFragment on CustomerToken {
+  __typename
+  token
+}

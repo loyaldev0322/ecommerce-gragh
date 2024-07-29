@@ -1,0 +1,22 @@
+fragment CartItemCountChanged on Cart {
+  __typename
+  id
+  total_quantity
+  items {
+    __typename
+    uid
+    quantity
+    errors {
+      code
+      message
+    }
+    product {
+      uid
+      name
+      sku
+      thumbnail {
+        ...ProductImage
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query ProductReviewProductName($urlKey: String!) {
+  products(filter: { url_key: { eq: $urlKey } }) {
+    items {
+      __typename
+      uid
+      name
+      sku
+    }
+  }
+}

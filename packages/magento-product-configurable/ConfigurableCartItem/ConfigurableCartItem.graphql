@@ -1,0 +1,21 @@
+fragment ConfigurableCartItem on ConfigurableCartItem @inject(into: ["CartItem"]) {
+  configurable_options {
+    configurable_product_option_uid
+    configurable_product_option_value_uid
+    option_label
+    value_label
+  }
+  customizable_options {
+    ...SelectedCustomizableOption
+  }
+  configured_variant {
+    uid
+    ...ProductLink
+    sku
+    name
+    sku
+    thumbnail {
+      ...ProductImage
+    }
+  }
+}

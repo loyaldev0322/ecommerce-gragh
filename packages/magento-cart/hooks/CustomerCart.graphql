@@ -1,0 +1,6 @@
+query CustomerCart {
+  customerCart {
+    id
+    __typename
+  }
+}

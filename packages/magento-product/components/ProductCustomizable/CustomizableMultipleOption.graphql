@@ -1,0 +1,11 @@
+fragment CustomizableMultipleOption on CustomizableMultipleOption {
+  multipleValue: value {
+    option_type_id
+    price
+    price_type
+    sku
+    sort_order
+    title
+    uid
+  }
+}

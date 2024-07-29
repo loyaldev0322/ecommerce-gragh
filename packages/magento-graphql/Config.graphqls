@@ -1,0 +1,30 @@
+extend input GraphCommerceConfig {
+  """
+  GraphQL Magento endpoint.
+
+  Examples:
+  - https://magento2.test/graphql
+  """
+  magentoEndpoint: String!
+
+  """
+  Version of the Magento backend.
+
+  Values: 245, 246, 247 for Magento 2.4.5, 2.4.6, 2.4.7 respectively.
+  """
+  magentoVersion: Int!
+}
+
+extend input GraphCommerceStorefrontConfig {
+  """
+  Magento store code.
+
+  Stores => All Stores => [Store View] => Store View Code
+
+  Examples:
+  - default
+  - en-us
+  - b2b-us
+  """
+  magentoStoreCode: String!
+}
